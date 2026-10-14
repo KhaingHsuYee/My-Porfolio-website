@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== FAVICON ===============-->
+   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
+   <link rel="stylesheet" href="assets/css/project-detail.css">
+
+   <!--=============== CHART.JS ===============-->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+   <title>Classroom Engagement Assessment - Khaing Hsu Yee</title>
+</head>
+
+<body>
+
+   <!--==================== HEADER ====================-->
+   <header class="header shadow-header" id="header">
+      <nav class="nav container">
+         <a href="index.html" class="nav__logo">KHY</a>
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="index.html#home" class="nav__link">Home</a></li>
+               <li><a href="index.html#projects" class="nav__link active-link">Projects</a></li>
+               <li><a href="index.html#resume" class="nav__link">Resume</a></li>
+               <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+            </ul>
+            <div class="nav__close" id="nav-close"><i class="ri-close-large-line"></i></div>
+         </div>
+         <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+      </nav>
+   </header>
+
+   <main class="main project-page">
+
+      <!--==================== 1. HERO & OVERVIEW ====================-->
+      <section class="project-hero section">
+         <div class="container">
+            <div class="breadcrumb">
+               <a href="index.html#projects"><i class="ri-arrow-left-line"></i> Back to Projects</a>
+            </div>
+
+            <span class="project__badge">Computer Vision &bull; YOLOv11m &bull; Educational AI</span>
+            <h1 class="project__main-title">Vision-Based Students' Engagement Assessment</h1>
+            <p class="project__subtitle">
+               Automated detection of fine-grained student behaviors in crowded classrooms, mapping physical actions
+               into four real-time engagement levels on annotated video output.
+            </p>
+
+            <div class="project__meta-grid">
+               
+               <div class="meta__card meta__card--highlight">
+                  <div class="meta__icon"><i class="ri-cpu-line"></i></div>
+                  <div>
+                     <span class="meta__label">Architecture</span>
+                     <p class="meta__val">YOLO11m (20.0M)</p>
+                  </div>
+               </div>
+               <div class="meta__card meta__card--highlight">
+                  <div class="meta__icon"><i class="ri-database-2-line"></i></div>
+                  <div>
+                     <span class="meta__label">Dataset Split</span>
+                     <p class="meta__val">15,791 Train / 1,511 Val</p>
+                  </div>
+               </div>
+               <div class="meta__card meta__card--highlight">
+                  <div class="meta__icon"><i class="ri-shapes-line"></i></div>
+                  <div>
+                     <span class="meta__label">Detected Classes</span>
+                     <p class="meta__val">4 Engagement Levels</p>
+                  </div>
+               </div>
+               <div class="meta__card meta__card--highlight">
+                  <div class="meta__icon"><i class="ri-award-line"></i></div>
+                  <div>
+                     <span class="meta__label">Validation mAP@50</span>
+                     <p class="meta__val highlight">88.1%</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 2. LIVE DEMO / IFRAME ====================-->
+      <section class="demo section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">Interactive Video Inference Demo</h2>
+               <p class="section__desc">Upload a classroom video or image below. The custom YOLO11m model processes each
+                  frame and outputs an annotated video with engagement bounding boxes.</p>
+            </div>
+
+            <div class="demo__container">
+               <div class="demo__frame-wrapper">
+                  <!-- Replace with your Hugging Face Space embed URL -->
+                  <iframe src="https://khainghy-classroom-engagement-yolo11.hf.space" frameborder="0" width="100%"
+                     height="560" title="YOLO11m Classroom Engagement Demo">
+                  </iframe>
+               </div>
+               <div class="demo__footer">
+                  <span><i class="ri-flashlight-line"></i> <strong>13.2 ms</strong> Inference per Frame (~75 FPS)</span>
+                  <span><i class="ri-vidicon-line"></i> Input: Classroom Video &rarr; Output: Annotated Engagement
+                     Video</span>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 3. PROBLEM & OBJECTIVES ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="two-col__grid grid">
+               <div class="card card--padded">
+                  <h3 class="card__title"><i class="ri-error-warning-line"></i> Problem Statement</h3>
+                  <p class="card__text">
+                     <strong>Real-World Limitation:</strong> Teachers in primary classrooms experience "split
+                     attention," making it difficult to monitor every student simultaneously. Traditional observation
+                     and post-class surveys are subjective, labor-intensive, and delayed.
+                  </p>
+                  <p class="card__text">
+                     <strong>Technical Hurdles:</strong> Spatio-temporal video models (such as SlowFast) require heavy
+                     compute and often overfit to backgrounds, while skeletal pose-estimation fails in crowded
+                     classrooms due to severe desk and peer occlusion.
+                  </p>
+               </div>
+
+               <div class="card card--padded">
+                  <h3 class="card__title"><i class="ri-focus-2-line"></i> Research Objectives</h3>
+                  <ul class="styled-list">
+                     <li>
+                        <i class="ri-checkbox-circle-fill"></i>
+                        <div><strong>Occlusion-Resilient Detection:</strong> Implement an enhanced YOLO11m workflow
+                           capable of detecting subtle student actions in high-density classrooms.</div>
+                     </li>
+                     <li>
+                        <i class="ri-checkbox-circle-fill"></i>
+                        <div><strong>Pedagogical Behavior Mapping:</strong> Group 7 fine-grained physical actions into 4
+                           standardized engagement categories (Active, Collaborative, Focused, Disengaged).</div>
+                     </li>
+                     <li>
+                        <i class="ri-checkbox-circle-fill"></i>
+                        <div><strong>Annotated Video Diagnostic Tool:</strong> Generate labeled classroom videos in real
+                           time to help educators evaluate teaching effectiveness.</div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 4. SYSTEM PIPELINE ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">System Workflow</h2>
+               <p class="section__desc">From raw classroom footage to annotated behavioral assessment.</p>
+            </div>
+
+            <div class="pipeline__flow grid">
+               <div class="pipeline__step">
+                  <div class="step__top">
+                     <span class="step__num">01</span>
+                     <i class="ri-Database-line step__icon"></i>
+                  </div>
+                  <h4>Dataset Fusion & Relabeling</h4>
+                  <p>Combined SCB-v3, SCB-v5, Roboflow samples, and custom annotations, merging 7 behaviors into 4
+                     engagement classes.</p>
+               </div>
+
+               <div class="pipeline__step">
+                  <div class="step__top">
+                     <span class="step__num">02</span>
+                     <i class="ri-sliders-line step__icon"></i>
+                  </div>
+                  <h4>Augmentation & Training</h4>
+                  <p>Resized to 640&times;640, applied Mosaic (1.0) and Albumentations for 90 epochs, then fine-tuned
+                     for the final 10 epochs with Mosaic disabled.</p>
+               </div>
+
+               <div class="pipeline__step">
+                  <div class="step__top">
+                     <span class="step__num">03</span>
+                     <i class="ri-vidicon-2-line step__icon"></i>
+                  </div>
+                  <h4>Video Frame Extraction</h4>
+                  <p>Extracts sequential frames from input classroom videos and runs fast 13.2ms inference using the
+                     trained YOLO11m weights.</p>
+               </div>
+
+               <div class="pipeline__step">
+                  <div class="step__top">
+                     <span class="step__num">04</span>
+                     <i class="ri-file-video-line step__icon"></i>
+                  </div>
+                  <h4>Annotated Video Output</h4>
+                  <p>Renders color-coded bounding boxes and confidence scores for Active, Collaborative, Focused, and
+                     Disengaged states onto the output video.</p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 5. DATASET & TAXONOMY ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">Dataset Engineering & Taxonomy</h2>
+               <p class="section__desc">
+                  Constructed from <strong>SCB-Dataset3</strong> (hand-raising, reading, writing),
+                  <strong>SCB-Dataset5</strong> (discussion), <strong>Roboflow</strong> (leaning on desk, phone usage),
+                  and manual annotations for <em>answering by standing up</em>.
+               </p>
+            </div>
+
+            <div class="dataset__layout grid">
+               <!-- Left: Taxonomy Table -->
+               <div class="table-responsive">
+                  <table class="custom-table">
+                     <thead>
+                        <tr>
+                           <th>Engagement Class</th>
+                           <th>Merged Fine-Grained Behaviors</th>
+                           <th>Total Labels</th>
+                           <th>Val Instances</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td><span class="badge badge--active">Active</span></td>
+                           <td>Hand-raising (15,175) + Answering standing (932)</td>
+                           <td><strong>16,111</strong></td>
+                           <td>3,335 (1,128 imgs)</td>
+                        </tr>
+                        <tr>
+                           <td><span class="badge badge--collaborative">Collaborative</span></td>
+                           <td>Discussing with peers (5,545)</td>
+                           <td><strong>5,545</strong></td>
+                           <td>994 (163 imgs)</td>
+                        </tr>
+                        <tr>
+                           <td><span class="badge badge--focused">Focused</span></td>
+                           <td>Reading (14,266) + Writing (6,924)</td>
+                           <td><strong>21,194</strong></td>
+                           <td>4,301 (729 imgs)</td>
+                        </tr>
+                        <tr>
+                           <td><span class="badge badge--disengaged">Disengaged</span></td>
+                           <td>Using phone (4,958) + Leaning on table (3,829)</td>
+                           <td><strong>8,791</strong></td>
+                           <td>1,823 (367 imgs)</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+
+               <!-- Right: Doughnut Chart -->
+               <div class="card card--padded chart__box">
+                  <div class="chart__header">
+                     <h3><i class="ri-pie-chart-2-fill"></i> Dataset Label Share (51,641 Total)</h3>
+                     <span class="chart__sub">Distribution of annotated bounding boxes across classes</span>
+                  </div>
+                  <div class="chart__canvas-wrap">
+                     <canvas id="datasetPieChart"></canvas>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 6. TRAINING RESULTS & METRICS ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">YOLO11m Training & Validation Results</h2>
+               <p class="section__desc">
+                  Trained for 100 epochs on an NVIDIA Tesla T4 GPU (16 batch size, 640px resolution, MuSGD optimizer,
+                  AMP enabled). Validated across 1,511 unseen classroom images containing 10,453 student instances.
+               </p>
+            </div>
+
+            <!-- 4 Class mAP Cards -->
+            <div class="metrics__grid grid">
+               <div class="card metric__card metric--active">
+                  <div class="metric__top">
+                     <span class="badge badge--active">Active</span>
+                     <span class="metric__sub">P: 84.0% &bull; R: 81.7%</span>
+                  </div>
+                  <p class="metric__val">86.7%</p>
+                  <span class="metric__caption">mAP@50 (mAP50-95: 62.5%)</span>
+               </div>
+
+               <div class="card metric__card metric--collab">
+                  <div class="metric__top">
+                     <span class="badge badge--collaborative">Collaborative</span>
+                     <span class="metric__sub">P: 85.7% &bull; R: 85.9%</span>
+                  </div>
+                  <p class="metric__val">91.3%</p>
+                  <span class="metric__caption">mAP@50 (mAP50-95: 76.0%)</span>
+               </div>
+
+               <div class="card metric__card metric--focused">
+                  <div class="metric__top">
+                     <span class="badge badge--focused">Focused</span>
+                     <span class="metric__sub">P: 78.8% &bull; R: 80.5%</span>
+                  </div>
+                  <p class="metric__val">83.5%</p>
+                  <span class="metric__caption">mAP@50 (mAP50-95: 62.0%)</span>
+               </div>
+
+               <div class="card metric__card metric--disengaged">
+                  <div class="metric__top">
+                     <span class="badge badge--disengaged">Disengaged</span>
+                     <span class="metric__sub">P: 84.9% &bull; R: 89.5%</span>
+                  </div>
+                  <p class="metric__val">90.7%</p>
+                  <span class="metric__caption">mAP@50 (mAP50-95: 53.1%)</span>
+               </div>
+            </div>
+
+            <!-- Charts Row: Class Comparison Bar Chart + Overall Metrics Progress -->
+            <div class="analytics__grid grid">
+               <div class="card card--padded">
+                  <div class="chart__header">
+                     <h3><i class="ri-bar-chart-grouped-line"></i> Class-Wise Performance (Precision, Recall & mAP@50)
+                     </h3>
+                     <span class="chart__sub">Validation results on best.pt checkpoint</span>
+                  </div>
+                  <div class="chart__canvas-wrap">
+                     <canvas id="metricsBarChart"></canvas>
+                  </div>
+               </div>
+
+               <div class="card card--padded overall__box">
+                  <div class="chart__header">
+                     <h3><i class="ri-dashboard-3-line"></i> Overall Model Summary</h3>
+                     <span class="chart__sub">Fused YOLO11m: 126 layers, 67.7 GFLOPs</span>
+                  </div>
+
+                  <div class="progress__list">
+                     <div class="progress__item">
+                        <div class="progress__labels">
+                           <span>Overall mAP@50</span>
+                           <strong>88.1%</strong>
+                        </div>
+                        <div class="progress__bar">
+                           <div class="progress__fill" style="width: 88.1%;"></div>
+                        </div>
+                     </div>
+
+                     <div class="progress__item">
+                        <div class="progress__labels">
+                           <span>Overall Recall (R)</span>
+                           <strong>84.4%</strong>
+                        </div>
+                        <div class="progress__bar">
+                           <div class="progress__fill" style="width: 84.4%;"></div>
+                        </div>
+                     </div>
+
+                     <div class="progress__item">
+                        <div class="progress__labels">
+                           <span>Overall Precision (P)</span>
+                           <strong>83.3%</strong>
+                        </div>
+                        <div class="progress__bar">
+                           <div class="progress__fill" style="width: 83.3%;"></div>
+                        </div>
+                     </div>
+
+                     <div class="progress__item">
+                        <div class="progress__labels">
+                           <span>Overall mAP@50-95</span>
+                           <strong>63.4%</strong>
+                        </div>
+                        <div class="progress__bar">
+                           <div class="progress__fill" style="width: 63.4%;"></div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="speed__pills">
+                     <div class="speed__pill"><span>Preprocess</span><strong>0.2 ms</strong></div>
+                     <div class="speed__pill"><span>Inference</span><strong>13.2 ms</strong></div>
+                     <div class="speed__pill"><span>Postprocess</span><strong>1.5 ms</strong></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 7. EVALUATION GRAPHS (CONFUSION MATRIX / CURVES) ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">Training & Evaluation Curves</h2>
+               <p class="section__desc">
+                  Exported directly from the Kaggle validation run
+                  (<code>/kaggle/working/runs/detect/classroom_study/v1</code>). Place your saved PNG plots in
+                  <code>assets/img/</code> to display them below.
+               </p>
+            </div>
+
+            <div class="yolo-graphs__grid grid">
+               <div class="card graph__card">
+                  <div class="graph__head">
+                     <h4>Confusion Matrix</h4>
+                     <span>Class prediction accuracy vs. ground truth</span>
+                  </div>
+                  <img src="assets/img/project_1/confusion_matrix.png" alt="Confusion Matrix"
+                     class="graph__img zoomable-img">
+               </div>
+
+               <div class="card graph__card">
+                  <div class="graph__head">
+                     <h4>Precision-Recall Curve</h4>
+                     <span>mAP@0.5 across all 4 engagement classes (0.881)</span>
+                  </div>
+                  <img src="assets/img/project_1/BoxPR_curve.png" alt="Precision-Recall Curve"
+                     class="graph__img zoomable-img">
+               </div>
+
+               <div class="card graph__card">
+                  <div class="graph__head">
+                     <h4>F1-Confidence Curve</h4>
+                     <span>Balance of precision and recall across confidence thresholds</span>
+                  </div>
+                  <img src="assets/img/project_1/BoxF1_curve.png" alt="F1 Confidence Curve"
+                     class="graph__img zoomable-img">
+               </div>
+
+               <div class="card graph__card">
+                  <div class="graph__head">
+                     <h4>100-Epoch Training Curve</h4>
+                     <span>Box loss, Cls loss, DFL loss & mAP convergence</span>
+                  </div>
+                  <img src="assets/img/project_1/results.png" alt="Training Results Graph"
+                     class="graph__img zoomable-img">
+               </div>
+            </div>
+         </div>
+      </section>
+
+   </main>
+
+   <!--==================== IMAGE MODAL ====================-->
+   <div id="imageModal" class="img-modal">
+      <span class="img-modal__close">&times;</span>
+      <img class="img-modal__content" id="expandedImg">
+   </div>
+
+   <!--==================== FOOTER ====================-->
+   <footer class="footer">
+      <div class="footer__container container grid">
+         <a href="index.html" class="footer__logo">KHY</a>
+         <div class="footer__links">
+            <a href="index.html#home" class="footer__link">Home</a>
+            <a href="index.html#projects" class="footer__link">Projects</a>
+            <a href="index.html#resume" class="footer__link">Resume</a>
+         </div>
+      </div>
+      <span class="footer__copy">&#169; Khaing Hsu Yee. All rights reserved.</span>
+   </footer>
+
+   <!--==================== SCROLL UP ====================-->
+   <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+   </a>
+
+   <!--=============== SCRIPTS ===============-->
+   <script src="assets/js/project-detail.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,703 @@
+/*=============== GLOBAL CONTAINER & OVERFLOW FIXES ===============*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.project-page {
+  padding-top: calc(var(--header-height, 3.5rem) + 1.5rem);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure the main container never exceeds viewport and stays centered on large screens */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Crucial grid fix: stops children from blowing out container widths */
+.grid {
+  display: grid;
+}
+
+.grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/*=============== BREADCRUMB & HEADER ===============*/
+.breadcrumb {
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumb a {
+  color: var(--first-color);
+  font-size: var(--small-font-size);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: var(--font-medium);
+  transition: transform 0.3s;
+}
+
+.breadcrumb a:hover {
+  transform: translateX(-5px);
+}
+
+.project__badge {
+  display: inline-block;
+  background: hsla(var(--hue), 79%, 66%, 0.14);
+  color: var(--first-color);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 2rem;
+  border: 1px solid hsla(var(--hue), 79%, 66%, 0.45);
+  margin-bottom: 1rem;
+  word-break: break-word;
+}
+
+.project__main-title {
+  font-size: clamp(1.5rem, 4vw, 2.35rem);
+  color: var(--white-color);
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+
+.project__subtitle {
+  color: var(--gray-color);
+  font-size: var(--normal-font-size);
+  max-width: 820px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.section__header {
+  margin-bottom: 2rem;
+}
+
+.section__header .section__title {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+.section__desc {
+  color: var(--gray-color);
+  font-size: var(--small-font-size);
+  max-width: 850px;
+  line-height: 1.6;
+}
+
+/*=============== HERO META CARDS ===============*/
+.project__meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.meta__card {
+  background: var(--container-color);
+  border: 1px solid hsla(var(--hue), 8%, 25%, 0.6);
+  padding: 1.15rem 1.25rem;
+  border-radius: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.meta__card--highlight {
+  background: linear-gradient(135deg, hsla(var(--hue), 79%, 66%, 0.14), var(--container-color));
+  border-color: hsla(var(--hue), 79%, 66%, 0.5);
+}
+
+.meta__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 0.65rem;
+  background: hsla(var(--hue), 79%, 66%, 0.12);
+  color: var(--first-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.meta__label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--gray-color);
+  margin-bottom: 0.2rem;
+}
+
+.meta__val {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-semi-bold);
+  color: var(--white-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta__val.highlight {
+  color: var(--first-color);
+  font-size: var(--h3-font-size);
+}
+
+/*=============== GENERIC CARDS & TWO-COL ===============*/
+.card {
+  background-color: var(--container-color);
+  border-radius: 1rem;
+  border: 1px solid hsla(var(--hue), 8%, 22%, 0.75);
+  box-shadow: 0 6px 20px hsla(0, 0%, 0%, 0.35);
+  max-width: 100%;
+}
+
+.card--padded {
+  padding: 1.75rem 1.5rem;
+}
+
+.two-col__grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 820px) {
+  .two-col__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card__title {
+  color: var(--first-color);
+  font-size: var(--normal-font-size);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card__text {
+  color: var(--gray-color);
+  line-height: 1.6;
+  font-size: var(--small-font-size);
+  margin-bottom: 0.85rem;
+}
+
+.card__text strong {
+  color: var(--white-color);
+}
+
+.styled-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.styled-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: var(--gray-color);
+  font-size: var(--small-font-size);
+  line-height: 1.5;
+}
+
+.styled-list li strong {
+  color: var(--white-color);
+}
+
+.styled-list li i {
+  color: var(--first-color);
+  font-size: 1.1rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+/*=============== DEMO SECTION ===============*/
+.demo__container {
+  background: var(--container-color);
+  border-radius: 1rem;
+  padding: 0.75rem;
+  border: 1px solid hsla(var(--hue), 79%, 66%, 0.35);
+  width: 100%;
+  max-width: 100%;
+}
+
+.demo__frame-wrapper {
+  border-radius: 0.65rem;
+  overflow: hidden;
+  background-color: #0b0f19;
+  width: 100%;
+  height: 520px;
+}
+
+.demo__frame-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.demo__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0.5rem 0.25rem;
+  font-size: var(--small-font-size);
+  color: var(--gray-color);
+}
+
+@media screen and (min-width: 650px) {
+  .demo__footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.demo__footer i {
+  color: var(--first-color);
+}
+
+/*=============== PIPELINE STEPS ===============*/
+.pipeline__flow {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.pipeline__step {
+  background: var(--container-color);
+  border: 1px solid hsla(var(--hue), 8%, 25%, 0.6);
+  padding: 1.5rem 1.25rem;
+  border-radius: 0.85rem;
+}
+
+.step__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.step__num {
+  font-size: 1.35rem;
+  font-weight: var(--font-semi-bold);
+  color: var(--first-color);
+}
+
+.step__icon {
+  font-size: 1.35rem;
+  color: var(--gray-color);
+}
+
+.pipeline__step h4 {
+  font-size: var(--small-font-size);
+  margin-bottom: 0.5rem;
+  color: var(--white-color);
+}
+
+.pipeline__step p {
+  font-size: 0.8rem;
+  color: var(--gray-color);
+  line-height: 1.5;
+}
+
+/*=============== DATASET TABLE & PIE CHART ===============*/
+.dataset__layout {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 900px) {
+  .dataset__layout {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.table-responsive {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 0.85rem;
+  border: 1px solid hsla(var(--hue), 8%, 25%, 0.6);
+  background: var(--container-color);
+}
+
+.custom-table {
+  width: 100%;
+  min-width: 480px; /* guarantees readable columns while table scrolls internally */
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid hsla(var(--hue), 8%, 20%, 0.7);
+}
+
+.custom-table th {
+  background-color: hsl(var(--hue), 8%, 14%);
+  color: var(--first-color);
+  font-weight: var(--font-medium);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: var(--font-medium);
+}
+
+.badge--active { background: rgba(74, 222, 128, 0.15); color: #4ade80; border: 1px solid #22c55e; }
+.badge--collaborative { background: rgba(250, 204, 21, 0.15); color: #facc15; border: 1px solid #eab308; }
+.badge--focused { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid #0ea5e9; }
+.badge--disengaged { background: rgba(248, 113, 113, 0.15); color: #f87171; border: 1px solid #ef4444; }
+
+/*=============== METRIC CARDS ===============*/
+.metrics__grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric__card {
+  padding: 1.25rem 1rem;
+  overflow: hidden;
+  text-align: center;
+}
+
+.metric--active { border-top: 3px solid #4ade80; }
+.metric--collab { border-top: 3px solid #facc15; }
+.metric--focused { border-top: 3px solid #38bdf8; }
+.metric--disengaged { border-top: 3px solid #f87171; }
+
+.metric__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.metric__sub {
+  font-size: 0.7rem;
+  color: var(--gray-color);
+}
+
+.metric__val {
+  font-size: 1.85rem;
+  font-weight: var(--font-semi-bold);
+  color: var(--white-color);
+  margin-bottom: 0.25rem;
+}
+
+.metric__caption {
+  font-size: 0.72rem;
+  color: var(--gray-color);
+}
+
+/*=============== CHARTS & PROGRESS BARS ===============*/
+.analytics__grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 900px) {
+  .analytics__grid {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.chart__header {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid hsla(var(--hue), 8%, 25%, 0.6);
+}
+
+.chart__header h3 {
+  font-size: var(--small-font-size);
+  color: var(--white-color);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.2rem;
+  word-break: break-word;
+}
+
+.chart__header h3 i {
+  color: var(--first-color);
+  flex-shrink: 0;
+}
+
+.chart__sub {
+  font-size: 0.72rem;
+  color: var(--gray-color);
+}
+
+/* Hard constraint on chart wrapper to stop overflow on mobile */
+.chart__canvas-wrap {
+  position: relative;
+  height: 260px;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.chart__canvas-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.progress__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.progress__labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--small-font-size);
+  margin-bottom: 0.35rem;
+  color: var(--gray-color);
+}
+
+.progress__labels strong {
+  color: var(--white-color);
+}
+
+.progress__bar {
+  width: 100%;
+  height: 7px;
+  background: hsl(var(--hue), 8%, 16%);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.progress__fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--first-color), #38bdf8);
+  border-radius: 1rem;
+}
+
+.speed__pills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.65rem;
+}
+
+.speed__pill {
+  background: hsl(var(--hue), 8%, 14%);
+  padding: 0.65rem 0.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  border: 1px solid hsla(var(--hue), 8%, 25%, 0.5);
+}
+
+.speed__pill span {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--gray-color);
+  margin-bottom: 0.2rem;
+}
+
+.speed__pill strong {
+  font-size: var(--small-font-size);
+  color: var(--first-color);
+}
+
+/*=============== YOLO EVALUATION GRAPHS ===============*/
+.yolo-graphs__grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.graph__card {
+  padding: 1.25rem 1rem;
+}
+
+.graph__head {
+  margin-bottom: 0.85rem;
+}
+
+.graph__head h4 {
+  color: var(--white-color);
+  font-size: var(--small-font-size);
+  margin-bottom: 0.2rem;
+}
+
+.graph__head span {
+  font-size: 0.72rem;
+  color: var(--gray-color);
+}
+
+.graph__img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0.35rem;
+  display: block;
+}
+
+/*=============== IMAGE LIGHTBOX / MODAL ===============*/
+.zoomable-img {
+  cursor: zoom-in;
+  transition: opacity 0.3s;
+}
+
+.zoomable-img:hover {
+  opacity: 0.85;
+}
+
+.img-modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(11, 15, 25, 0.95);
+  backdrop-filter: blur(5px);
+  padding: 1rem;
+  
+  /* Add centering and animation rules directly to the base class */
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.img-modal.show-modal {
+  /* Only toggle opacity here, JavaScript handles display: flex */
+  opacity: 1;
+}
+
+.img-modal__content {
+  max-width: 95%;
+  max-height: 85vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  background-color: #fff;
+  padding: 0.5rem;
+  object-fit: contain;
+}
+
+.img-modal__close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #e6edf3;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup {
+  position: fixed;
+  right: 1.5rem;
+  bottom: -50%; /* Hidden off-screen by default */
+  background-color: var(--container-color);
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.3);
+  display: inline-flex;
+  padding: 0.45rem;
+  border-radius: 0.4rem;
+  font-size: 1.5rem;
+  color: var(--white-color);
+  z-index: 100;
+  border: 1px solid hsla(var(--hue), 8%, 25%, 0.6);
+  transition: bottom 0.4s, transform 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.scrollup:hover {
+  transform: translateY(-0.25rem);
+  color: var(--first-color);
+  border-color: var(--first-color);
+}
+
+/* Class added by JavaScript to show the button */
+.show-scroll {
+  bottom: 2rem;
+}
+
+/* Ensure smooth scrolling across the page */
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 768px) {
+  .scrollup {
+    right: 1rem;
+    padding: 0.35rem;
+    font-size: 1.25rem;
+  }
+}
+
+/*=============== RESPONSIVE BREAKPOINTS ===============*/
+@media screen and (max-width: 768px) {
+  .project-page {
+    padding-top: calc(var(--header-height, 3.5rem) + 0.75rem);
+  }
+
+  .card--padded {
+    padding: 1.25rem 1rem;
+  }
+
+  .demo__frame-wrapper {
+    height: 420px;
+  }
+
+  .chart__canvas-wrap {
+    height: 240px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .container {
+    padding-inline: 0.85rem;
+  }
+
+  .demo__frame-wrapper {
+    height: 380px;
+  }
+
+  .metrics__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .speed__pills {
+    grid-template-columns: 1fr;
+  }
+
+  .speed__pill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .speed__pill span {
+    margin-bottom: 0;
+  }
+}
