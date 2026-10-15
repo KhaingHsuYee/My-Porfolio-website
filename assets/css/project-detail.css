@@ -99,11 +99,12 @@ body {
 }
 
 /*=============== HERO META CARDS ===============*/
+/* Update the grid to give cards more breathing room */
 .project__meta-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
 }
 
 .meta__card {
@@ -146,9 +147,9 @@ body {
   font-size: var(--small-font-size);
   font-weight: var(--font-semi-bold);
   color: var(--white-color);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal; /* Allows text to wrap neatly instead of breaking the box */
+  line-height: 1.4;
+  word-wrap: break-word;
 }
 
 .meta__val.highlight {

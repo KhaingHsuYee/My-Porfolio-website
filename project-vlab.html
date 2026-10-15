@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--=============== FAVICON ===============-->
+   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+   <!--=============== REMIXICONS ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css">
+   <link rel="stylesheet" href="assets/css/project-detail.css">
+
+   <title>V-Lab AR - Khaing Hsu Yee</title>
+</head>
+
+<body>
+
+   <!--==================== HEADER ====================-->
+   <header class="header shadow-header" id="header">
+      <nav class="nav container">
+         <a href="index.html" class="nav__logo">KHY</a>
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="index.html#home" class="nav__link">Home</a></li>
+               <li><a href="index.html#projects" class="nav__link active-link">Projects</a></li>
+               <li><a href="index.html#resume" class="nav__link">Resume</a></li>
+               <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+            </ul>
+            <div class="nav__close" id="nav-close"><i class="ri-close-large-line"></i></div>
+         </div>
+         <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+      </nav>
+   </header>
+
+   <main class="main project-page">
+
+      <!--==================== 1. HERO & OVERVIEW ====================-->
+      <section class="project-hero section">
+         <div class="container">
+            <div class="breadcrumb">
+               <a href="index.html#projects"><i class="ri-arrow-left-line"></i> Back to Projects</a>
+            </div>
+
+            <span class="project__badge">Mobile AR &bull; Unity3D &bull; Educational Tech</span>
+            <h1 class="project__main-title">V-Lab AR: A Modular Augmented Reality Science Framework</h1>
+            <p class="project__subtitle">
+               Transforming everyday physical surfaces into interactive, zero-risk chemistry and physics laboratories
+               using marker-less spatial computing.
+            </p>
+
+            
+
+            <!-- Replaced Institution with Technical Metrics -->
+            <div class="project__meta-grid">
+               <div class="meta__card">
+                  <div class="meta__icon"><i class="ri-code-s-slash-line"></i></div>
+                  <div>
+                     <span class="meta__label">Core Framework</span>
+                     <p class="meta__val">Unity & AR Foundation</p>
+                  </div>
+               </div>
+               <div class="meta__card">
+                  <div class="meta__icon"><i class="ri-focus-3-line"></i></div>
+                  <div>
+                     <span class="meta__label">Tracking Engine</span>
+                     <p class="meta__val">Marker-less VIO & SLAM</p>
+                  </div>
+               </div>
+               <div class="meta__card">
+                  <div class="meta__icon"><i class="ri-test-tube-line"></i></div>
+                  <div>
+                     <span class="meta__label">Curriculum</span>
+                     <p class="meta__val">8 Interactive Modules</p>
+                  </div>
+               </div>
+               <div class="meta__card meta__card--highlight">
+                  <div class="meta__icon"><i class="ri-cpu-line"></i></div>
+                  <div>
+                     <span class="meta__label">Performance</span>
+                     <p class="meta__val highlight">Mobile-Optimized</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 2. APP SHOWCASE (VIDEO/GIF) ====================-->
+      <section class="demo section">
+         <div class="container">
+            <div class="demo__container">
+               <div class="demo__frame-wrapper"
+                  style="background-color: #191b22; display: flex; align-items: center; justify-content: center;">
+                  <!-- Replace src with an MP4 of your app recording, or a looping GIF -->
+                  <video src="assets/video/vlab-demo.mp4" autoplay loop muted playsinline
+                     style="width: 100%; height: 100%; object-fit: contain; border-radius: 0.65rem;"></video>
+               </div>
+               <div class="demo__footer">
+                  <span><i class="ri-smartphone-line"></i> Runs natively on ARCore-supported Android devices</span>
+                  <span><i class="ri-magic-line"></i> Anchoring via Screen-space Raycasting</span>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 3. THE PROBLEM VS SOLUTION ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="two-col__grid grid">
+               <div class="card card--padded">
+                  <h3 class="card__title"><i class="ri-error-warning-line"></i> The Educational Barrier</h3>
+                  <p class="card__text">
+                     Practical experimentation is the cornerstone of STEM education. However, educational institutions
+                     in developing regions face severe financial strain in maintaining physical laboratories.
+                     Prohibitive costs for consumable chemical reagents, fragile glassware, and safety risks frequently
+                     reduce science instruction to passive textbook reading and static chalkboard demonstrations.
+                  </p>
+               </div>
+
+               <div class="card card--padded" style="border-top: 3px solid #38bdf8;">
+                  <h3 class="card__title"><i class="ri-lightbulb-flash-line"></i> The AR Solution</h3>
+                  <p class="card__text">
+                     <strong>V-Lab AR</strong> bypasses physical infrastructure entirely by utilizing standard consumer
+                     smartphones. By leveraging sensor fusion (RGB cameras + IMU sensors), it transforms any ordinary
+                     classroom desk into a fully equipped, interactive workstation—delivering a highly scalable,
+                     zero-risk, and cost-effective practical science platform.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 4. TECHNOLOGIES USED ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">Technologies Used</h2>
+               <p class="section__desc">The core stack and frameworks powering the augmented reality experience.</p>
+            </div>
+
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem;">
+               <div
+                  style="background: var(--container-color); border: 1px solid hsla(var(--hue), 8%, 25%, 0.6); padding: 1.5rem; border-radius: 0.75rem; text-align: center; transition: transform 0.3s;"
+                  onmouseover="this.style.transform='translateY(-5px)'"
+                  onmouseout="this.style.transform='translateY(0)'">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg"
+                     width="45" height="45" alt="Unity"
+                     style="margin-bottom: 0.5rem; display: inline-block; filter: brightness(0) invert(1);">
+                  <h4 style="margin-top: 0.75rem; font-size: var(--normal-font-size);">Unity 3D Engine</h4>
+               </div>
+
+               <div
+                  style="background: var(--container-color); border: 1px solid hsla(var(--hue), 8%, 25%, 0.6); padding: 1.5rem; border-radius: 0.75rem; text-align: center; transition: transform 0.3s;"
+                  onmouseover="this.style.transform='translateY(-5px)'"
+                  onmouseout="this.style.transform='translateY(0)'">
+                  <svg viewBox="0 0 100 100" width="45" height="45" xmlns="http://www.w3.org/2000/svg"
+                     style="margin-bottom: 0.5rem; display: inline-block;">
+                     <polygon points="89,27.5 50,5 11,27.5 32.7,40 50,30 67.3,40" fill="#B388FF" />
+                     <polygon points="11,27.5 11,72.5 32.7,60 32.7,40" fill="#7C4DFF" />
+                     <polygon points="11,72.5 50,95 89,72.5 67.3,60 50,70 32.7,60" fill="#6200EA" />
+                  </svg>
+                  <h4 style="margin-top: 0.75rem; font-size: var(--normal-font-size);">Google ARCore</h4>
+               </div>
+
+               <div
+                  style="background: var(--container-color); border: 1px solid hsla(var(--hue), 8%, 25%, 0.6); padding: 1.5rem; border-radius: 0.75rem; text-align: center; transition: transform 0.3s;"
+                  onmouseover="this.style.transform='translateY(-5px)'"
+                  onmouseout="this.style.transform='translateY(0)'">
+                  <svg viewBox="0 0 100 100" width="45" height="45" xmlns="http://www.w3.org/2000/svg"
+                     style="margin-bottom: 0.5rem; display: inline-block;">
+                     <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" fill="#68217A" />
+                     <text x="50" y="66" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-weight="bold"
+                        font-size="42" text-anchor="middle">C#</text>
+                  </svg>
+                  <h4 style="margin-top: 0.75rem; font-size: var(--normal-font-size);">C# Scripting</h4>
+               </div>
+
+               <div
+                  style="background: var(--container-color); border: 1px solid hsla(var(--hue), 8%, 25%, 0.6); padding: 1.5rem; border-radius: 0.75rem; text-align: center; transition: transform 0.3s;"
+                  onmouseover="this.style.transform='translateY(-5px)'"
+                  onmouseout="this.style.transform='translateY(0)'">
+                  <i class="ri-box-3-line"
+                     style="font-size: 45px; color: #facc15; display: inline-block; margin-bottom: 0.5rem; width: 45px; height: 45px; line-height: 45px; vertical-align: middle;"></i>
+                  <h4 style="margin-top: 0.75rem; font-size: var(--normal-font-size);">AR Foundation</h4>
+               </div>
+            </div>
+
+         </div>
+      </section>
+
+      <!--==================== 5. THE THREE SUITES ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">Modular Scientific Suites</h2>
+               <p class="section__desc">The application encompasses 8 core practical experiments, systematically
+                  categorized into distinct scientific disciplines.</p>
+            </div>
+
+            <!-- 3-Column Grid utilizing pipeline styling for layout -->
+            <div class="pipeline__flow grid">
+               <!-- Suite 1 -->
+               <div class="pipeline__step">
+                  <div class="step__top">
+                     <i class="ri-flask-line step__icon" style="color: #4ade80;"></i>
+                  </div>
+                  <h4>🧪 Chemistry Suite</h4>
+                  <ul class="styled-list" style="margin-top: 1rem;">
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Acid-Base Titration:</strong> Real-time volumetric fluid color transitions based on
+                           dynamic pH calculations.</div>
+                     </li>
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Flame Test:</strong> Dynamic emission spectra particle systems identifying metallic
+                           cations.</div>
+                     </li>
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Radical Tests:</strong> Interactive procedural chemical precipitate formations.
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+
+               <!-- Suite 2 -->
+               <div class="pipeline__step">
+                  <div class="step__top">
+                     <i class="ri-flashlight-line step__icon" style="color: #facc15;"></i>
+                  </div>
+                  <h4>⚡ Physics Suite</h4>
+                  <ul class="styled-list" style="margin-top: 1rem;">
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Ohm's Law:</strong> DC circuit assembly observing real-time proportional
+                           relationships.</div>
+                     </li>
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Kirchhoff's Laws:</strong> Multi-loop wiring with live digital multimeters
+                           calculating exact nodal voltage drops continuously.</div>
+                     </li>
+                  </ul>
+               </div>
+
+               <!-- Suite 3 -->
+               <div class="pipeline__step">
+                  <div class="step__top">
+                     <i class="ri-planet-line step__icon" style="color: #38bdf8;"></i>
+                  </div>
+                  <h4>🪐 Exploration Suite</h4>
+                  <ul class="styled-list" style="margin-top: 1rem;">
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Solar System:</strong> 360-degree planetary orbits with orbital mechanics
+                           dashboards.</div>
+                     </li>
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Molecular Structures:</strong> 27 manipulatable 3D compounds featuring CPK color
+                           keys.</div>
+                     </li>
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Periodic Table:</strong> 3D interactive table with isolated atomic models and
+                           dynamic electron orbits.</div>
+                     </li>
+                     <li><i class="ri-checkbox-circle-line"></i>
+                        <div><strong>Biological Anatomy:</strong> 9 complex physiological systems with holographic
+                           labelling.</div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 6. TECHNICAL DEEP DIVE ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">"Under the Hood" Architecture</h2>
+               <p class="section__desc">Engineering a high-fidelity AR experience on mobile devices requires rigorous
+                  spatial computing frameworks and strict asset optimization.</p>
+            </div>
+
+            <div class="two-col__grid grid">
+               <div class="card card--padded">
+                  <h3 class="card__title" style="font-size: var(--normal-font-size);"><i class="ri-radar-line"></i>
+                     Marker-less Surface Detection</h3>
+                  <p class="card__text">
+                     Instead of relying on printed QR codes, the system utilizes the <strong>RANSAC algorithm</strong>
+                     to filter 3D point clouds generated by the camera's feature extraction. It mathematically isolates
+                     stable, horizontal physical planes in real-time to generate renderable bounds for placing
+                     equipment.
+                  </p>
+               </div>
+
+               <div class="card card--padded">
+                  <h3 class="card__title" style="font-size: var(--normal-font-size);"><i class="ri-anchor-line"></i>
+                     Spatial Anchoring & VIO</h3>
+                  <p class="card__text">
+                     To prevent virtual objects from drifting, assets are bound to <strong>Spatial Anchors</strong>
+                     rather than absolute camera coordinates. These anchors automatically recalculate their
+                     transformation matrices to absorb Visual-Inertial Odometry (VIO) loop-closure recalibrations,
+                     keeping virtual beakers rigidly locked to the physical desk.
+                  </p>
+               </div>
+
+               <div class="card card--padded">
+                  <h3 class="card__title" style="font-size: var(--normal-font-size);"><i class="ri-box-3-line"></i> 3D
+                     Asset Optimization</h3>
+                  <p class="card__text">
+                     To prevent mobile thermal throttling while running intensive SLAM calculations, assets follow
+                     strict optimization heuristics. Meshes undergo aggressive polygon decimation, and materials are
+                     combined into Texture Atlases to leverage <strong>Static and Dynamic Draw Call Batching</strong> in
+                     the Unity engine.
+                  </p>
+               </div>
+
+               <div class="card card--padded">
+                  <h3 class="card__title" style="font-size: var(--normal-font-size);"><i class="ri-function-line"></i>
+                     Real-time Mathematical Engine</h3>
+                  <p class="card__text">
+                     The application replaces static pre-rendered animations with custom C# physics and chemistry logic.
+                     Calculations like $V=IR$ or stoichiometric molar equations run continuously in the background,
+                     updating UI gauges and grading student inputs in real-time to enforce a genuine cause-and-effect
+                     loop.
+                  </p>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 7. APP SCREENSHOT GALLERY ====================-->
+      <section class="section">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">Application Interface</h2>
+               <p class="section__desc">Screenshots captured directly from the mobile build.</p>
+            </div>
+
+            <div class="yolo-graphs__grid grid">
+               <!-- Add your V-Lab AR screenshots to the assets/img/ folder -->
+               <div class="card graph__card">
+                  <div class="graph__head">
+                     <h4>Acid-Base Titration</h4>
+                     <span>Virtual burette and UI results dashboard</span>
+                  </div>
+                  <img src="assets/img/vlab-titration.png" alt="Titration Module" class="graph__img zoomable-img"
+                     style="background: #0b0f19;">
+               </div>
+
+               <div class="card graph__card">
+                  <div class="graph__head">
+                     <h4>Ohm's Law Wiring</h4>
+                     <span>Anchored circuit boards with live virtual multimeter readings</span>
+                  </div>
+                  <img src="assets/img/vlab-circuit.png" alt="Circuit Module" class="graph__img zoomable-img"
+                     style="background: #0b0f19;">
+               </div>
+
+               <div class="card graph__card">
+                  <div class="graph__head">
+                     <h4>Solar System</h4>
+                     <span>Isolated 3D Sun model with holographic data panel</span>
+                  </div>
+                  <img src="assets/img/vlab-solar.png" alt="Solar System Module" class="graph__img zoomable-img"
+                     style="background: #0b0f19;">
+               </div>
+
+               <div class="card graph__card">
+                  <div class="graph__head">
+                     <h4>Anatomy Explorer</h4>
+                     <span>Anchored skeletal structure with interactive floating labels</span>
+                  </div>
+                  <img src="assets/img/vlab-skeleton.png" alt="Anatomy Module" class="graph__img zoomable-img"
+                     style="background: #0b0f19;">
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== 8. DOWNLOAD & INSTALLATION ====================-->
+      <section class="section" id="download">
+         <div class="container">
+            <div class="section__header">
+               <h2 class="section__title">Try V-Lab AR</h2>
+               <p class="section__desc">Download and install the application directly on your Android device.</p>
+            </div>
+
+            <div class="card card--padded grid"
+               style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; align-items: center; border-top: 3px solid var(--first-color);">
+
+               <!-- Installation Instructions -->
+               <div>
+                  <h3 style="color: var(--white-color); margin-bottom: 1.5rem; font-size: var(--h3-font-size);">
+                     Installation Guide</h3>
+                  <ul class="styled-list">
+                     <li><i class="ri-android-line" style="color: #4ade80;"></i>
+                        <div><strong>OS Requirement:</strong> Android 8.0 (Oreo) or higher.</div>
+                     </li>
+                     <li><i class="ri-smartphone-line" style="color: #38bdf8;"></i>
+                        <div><strong>Hardware:</strong> Must be an ARCore-supported device.</div>
+                     </li>
+                     <li><i class="ri-settings-3-line" style="color: #facc15;"></i>
+                        <div><strong>Manual Install:</strong> After downloading the APK, you must allow "Install from
+                           unknown sources" in your Android security settings.</div>
+                     </li>
+                  </ul>
+               </div>
+
+               <!-- QR Code & Download Button -->
+               <div
+                  style="display: flex; flex-direction: column; align-items: center; text-align: center; background: #0b0f19; padding: 2rem; border-radius: 0.75rem; border: 1px solid hsla(var(--hue), 8%, 25%, 0.6);">
+                  <!-- API generates the QR code from the GitHub Releases link -->
+                  <img
+                     src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&bgcolor=0b0f19&color=ffffff&data=https://github.com/KhaingHsuYee/V-Lab-AR-A-Modular-Augmented-Reality-Science-Framework/releases/latest"
+                     alt="Scan to Download APK"
+                     style="width: 140px; height: 140px; margin-bottom: 1rem; border-radius: 0.5rem; border: 2px solid var(--first-color); padding: 0.25rem;">
+                  <p style="color: var(--gray-color); font-size: var(--small-font-size); margin-bottom: 1.5rem;">Scan to
+                     download on your phone</p>
+
+                  <a href="https://github.com/KhaingHsuYee/V-Lab-AR-A-Modular-Augmented-Reality-Science-Framework/releases/latest"
+                     target="_blank" class="button button--primary"
+                     style="background: var(--first-color); color: #0b0f19; font-weight: var(--font-semi-bold); padding: 0.75rem 1.5rem; border-radius: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; width: 100%; justify-content: center;">
+                     <i class="ri-download-2-line" style="font-size: 1.2rem;"></i> Download APK
+                  </a>
+
+                  <a href="https://github.com/KhaingHsuYee/V-Lab-AR-A-Modular-Augmented-Reality-Science-Framework"
+                     target="_blank" class="button button--ghost"
+                     style="padding: 0.75rem 1.5rem; border-radius: 0.5rem; display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; width: 100%; justify-content: center;">
+                     <i class="ri-github-fill" style="font-size: 1.2rem;"></i> View Source Code
+                  </a>
+               </div>
+
+            </div>
+         </div>
+      </section>
+
+   </main>
+
+   <!--==================== IMAGE MODAL (LIGHTBOX) ====================-->
+   <div id="imageModal" class="img-modal">
+      <span class="img-modal__close">&times;</span>
+      <img class="img-modal__content" id="expandedImg">
+   </div>
+
+   <!--==================== SCROLL UP ====================-->
+   <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+   </a>
+
+   <!--==================== FOOTER ====================-->
+   <footer class="footer">
+      <div class="footer__container container grid">
+         <a href="index.html" class="footer__logo">KHY</a>
+         <div class="footer__links">
+            <a href="index.html#home" class="footer__link">Home</a>
+            <a href="index.html#projects" class="footer__link">Projects</a>
+            <a href="index.html#resume" class="footer__link">Resume</a>
+         </div>
+      </div>
+      <span class="footer__copy">&#169; Khaing Hsu Yee. All rights reserved.</span>
+   </footer>
+
+   <!--=============== SCRIPTS ===============-->
+   <script src="assets/js/project-detail.js"></script>
+</body>
+
+</html>
