@@ -10,6 +10,7 @@ if(navToggle){
    })
 }
 
+
 /* Menu hidden */
 if(navClose){
    navClose.addEventListener('click', () =>{
@@ -121,3 +122,36 @@ sr.reveal(`.about__content, .contact__content`,{origin: 'bottom'})
 sr.reveal(`.about__image, .contact__form`,{delay: 300})
 
 sr.reveal(`.projects__card`,{interval: 100})
+
+/*=============== DARK / LIGHT THEME TOGGLE ===============*/ 
+const themeButton = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+if (themeButton && themeIcon) {
+    // Check if the user previously saved a theme preference
+    const selectedTheme = localStorage.getItem('selected-theme');
+
+    // Apply the light theme immediately if it was saved
+    if (selectedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        themeIcon.classList.remove('ri-sun-line');
+        themeIcon.classList.add('ri-moon-line');
+    }
+
+    // Toggle the theme when the button is clicked
+    themeButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevents the mobile menu from acting up
+        
+        document.body.classList.toggle('light-theme');
+
+        if (document.body.classList.contains('light-theme')) {
+            themeIcon.classList.remove('ri-sun-line');
+            themeIcon.classList.add('ri-moon-line');
+            localStorage.setItem('selected-theme', 'light');
+        } else {
+            themeIcon.classList.remove('ri-moon-line');
+            themeIcon.classList.add('ri-sun-line');
+            localStorage.setItem('selected-theme', 'dark');
+        }
+    });
+}

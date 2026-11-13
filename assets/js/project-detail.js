@@ -161,3 +161,35 @@ const scrollUp = () => {
 }
 
 window.addEventListener('scroll', scrollUp);
+
+/*=============== DARK / LIGHT THEME TOGGLE (PROJECT PAGES) ===============*/ 
+const themeButton = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+
+if (themeButton && themeIcon) {
+    // Check if the user previously saved a theme preference
+    const selectedTheme = localStorage.getItem('selected-theme');
+
+    // Apply the light theme immediately if it was saved
+    if (selectedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        themeIcon.classList.remove('ri-sun-line');
+        themeIcon.classList.add('ri-moon-line');
+    }
+
+    // Toggle the theme when the button is clicked
+    themeButton.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        document.body.classList.toggle('light-theme');
+
+        if (document.body.classList.contains('light-theme')) {
+            themeIcon.classList.remove('ri-sun-line');
+            themeIcon.classList.add('ri-moon-line');
+            localStorage.setItem('selected-theme', 'light');
+        } else {
+            themeIcon.classList.remove('ri-moon-line');
+            themeIcon.classList.add('ri-sun-line');
+            localStorage.setItem('selected-theme', 'dark');
+        }
+    });
+}

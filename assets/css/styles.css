@@ -450,6 +450,22 @@ img {
   opacity: 1;
   pointer-events: initial;
 }
+
+.project__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+/* Add this to style the new reminder text */
+.projects__subtitle {
+  text-align: center;
+  font-size: var(--normal-font-size);
+  color: var(--gray-color);
+  margin-bottom: 2rem;
+  margin-top: -1rem; /* Pulls it closer to the main title */
+}
 /*=============== RESUME ===============*/
 .resume__container{
   row-gap: 4rem;
@@ -753,6 +769,10 @@ img {
   .container{
     margin-inline: auto;
   }
+  .projects__subtitle {
+    margin-bottom: 3.5rem;
+    margin-top: -2rem;
+  }
 
   .section{
     padding-block: 7rem 2rem;
@@ -828,8 +848,9 @@ img {
   }
 
   .projects__container{
-    grid-template-columns: repeat(3, 350px);
-    gap: 3rem 2rem;
+    grid-template-columns: repeat(2, 350px);
+    gap: 3rem 2.5rem;
+    justify-content: center; /* This safely centers the 2x2 grid on ultra-wide monitors */
   }
 
   .projects__data .button{
@@ -909,4 +930,31 @@ img {
   body{
     zoom: 1.2;
   }
+}
+
+/*=============== DARK / LIGHT THEME (GLOBAL) ===============*/
+body.light-theme {
+  --white-color: hsl(var(--hue), 8%, 15%); 
+  --black-color: hsl(var(--hue), 4%, 85%);
+  --gray-color: hsl(var(--hue), 8%, 45%);
+  --body-color: hsl(var(--hue), 20%, 96%);
+  --container-color: hsl(var(--hue), 20%, 100%);
+}
+
+.theme-btn {
+  background: transparent;
+  border: none;
+  color: var(--white-color);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+  padding: 0.2rem;
+}
+
+.theme-btn:hover {
+  color: var(--first-color);
+  transform: rotate(15deg);
 }

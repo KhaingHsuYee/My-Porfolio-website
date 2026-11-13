@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+   
+   <!-- Global styles for Navbar, Footer, and Theme Variables -->
+   <link rel="stylesheet" href="assets/css/styles.css">
+   
+   <title>Inventory Management System - Khaing Hsu Yee</title>
+
+   <style>
+      /* PAGE LAYOUT (Inherits Global Theme Variables) */
+      .ims-page {
+         font-family: var(--body-font);
+         padding-top: calc(var(--header-height) + 2rem);
+         padding-bottom: 5rem;
+         transition: background-color 0.4s ease;
+      }
+
+      .ims-container {
+         max-width: 1000px;
+         margin: 0 auto;
+         padding: 0 1.5rem;
+      }
+
+      .ims-back-btn {
+         display: inline-flex;
+         align-items: center;
+         gap: 0.5rem;
+         color: var(--first-color);
+         font-size: 0.9rem;
+         font-weight: 500;
+         margin-bottom: 3rem;
+         transition: transform 0.3s ease;
+      }
+
+      .ims-back-btn:hover {
+         transform: translateX(-5px);
+      }
+
+      /* Hero & Overview */
+      .ims-hero {
+         text-align: center;
+         margin-bottom: 4rem;
+      }
+
+      .ims-title {
+         font-size: clamp(2rem, 5vw, 3.5rem);
+         color: var(--white-color);
+         font-weight: 800;
+         margin-bottom: 1rem;
+         letter-spacing: -0.02em;
+         transition: color 0.4s ease;
+      }
+
+      .ims-overview {
+         font-size: 1.1rem;
+         max-width: 700px;
+         margin: 0 auto 2rem;
+         line-height: 1.6;
+         color: var(--gray-color);
+         transition: color 0.4s ease;
+      }
+
+      .ims-demo-links {
+         display: flex;
+         gap: 1rem;
+         justify-content: center;
+         flex-wrap: wrap;
+      }
+
+      .ims-btn {
+         display: inline-flex;
+         align-items: center;
+         gap: 0.5rem;
+         padding: 0.75rem 1.5rem;
+         border-radius: 0.5rem;
+         font-weight: var(--font-semi-bold);
+         font-size: 0.95rem;
+         transition: all 0.3s ease;
+         cursor: pointer;
+      }
+
+      .ims-btn-primary {
+         background-color: var(--first-color);
+         color: hsl(var(--hue), 8%, 8%);
+      }
+
+      .ims-btn-primary:hover {
+         opacity: 0.9;
+         transform: translateY(-2px);
+      }
+
+      .ims-btn-secondary {
+         background-color: var(--container-color);
+         color: var(--white-color);
+         border: 1px solid hsla(var(--hue), 8%, 40%, 0.4);
+      }
+
+      .ims-btn-secondary:hover {
+         border-color: var(--first-color);
+         color: var(--first-color);
+         transform: translateY(-2px);
+      }
+
+      /* Section Headers */
+      .ims-section {
+         margin-bottom: 4rem;
+      }
+
+      .ims-section-title {
+         font-size: 1.5rem;
+         color: var(--white-color);
+         margin-bottom: 1.5rem;
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+      }
+
+      .ims-section-title i {
+         color: var(--first-color);
+      }
+
+      /* Aim / Objective Card */
+      .ims-aim-card {
+         background: var(--container-color);
+         border-radius: 1rem;
+         padding: 2rem;
+         border: 1px solid hsla(var(--hue), 8%, 40%, 0.2);
+         box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+         font-size: 1.05rem;
+         line-height: 1.7;
+         color: var(--gray-color);
+         border-left: 4px solid var(--first-color);
+         transition: all 0.4s ease;
+      }
+
+      /* Features Grid */
+      .ims-features {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+         gap: 1.5rem;
+      }
+
+      .ims-feature-card {
+         background: var(--container-color);
+         border: 1px solid hsla(var(--hue), 8%, 40%, 0.2);
+         border-radius: 1rem;
+         padding: 1.5rem;
+         transition: all 0.3s ease;
+         box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+      }
+
+      .ims-feature-card:hover {
+         border-color: var(--first-color);
+         transform: translateY(-3px);
+      }
+
+      .ims-feature-icon {
+         width: 48px;
+         height: 48px;
+         background: hsla(var(--hue), 79%, 66%, 0.1);
+         color: var(--first-color);
+         border-radius: 0.75rem;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-size: 1.5rem;
+         margin-bottom: 1rem;
+      }
+
+      .ims-feature-title {
+         font-size: 1.1rem;
+         color: var(--white-color);
+         margin-bottom: 0.5rem;
+         font-weight: var(--font-semi-bold);
+      }
+
+      .ims-feature-desc {
+         font-size: 0.95rem;
+         color: var(--gray-color);
+         line-height: 1.6;
+      }
+
+      /* Tech Stack */
+      .ims-tech-stack {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 0.75rem;
+      }
+
+      .ims-tech-pill {
+         background: var(--container-color);
+         border: 1px solid hsla(var(--hue), 8%, 40%, 0.3);
+         padding: 0.5rem 1.25rem;
+         border-radius: 2rem;
+         font-size: 0.9rem;
+         font-weight: var(--font-medium);
+         color: var(--white-color);
+         display: flex;
+         align-items: center;
+         gap: 0.5rem;
+         transition: all 0.3s ease;
+      }
+      
+      .ims-tech-pill i {
+         color: var(--first-color);
+         font-size: 1.1rem;
+      }
+
+      /* Screenshots Gallery */
+      .ims-gallery {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+         gap: 2rem;
+      }
+
+      .ims-screenshot {
+         background: var(--container-color);
+         border: 1px solid hsla(var(--hue), 8%, 40%, 0.2);
+         border-radius: 1rem;
+         overflow: hidden;
+         box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+         transition: all 0.3s ease;
+      }
+
+      .ims-screenshot:hover {
+         border-color: var(--first-color);
+      }
+
+      /* Forces all screenshots to a uniform 16:9 box */
+      .ims-screenshot img {
+         width: 100%;
+         aspect-ratio: 16 / 9;
+         object-fit: cover;
+         object-position: top center;
+         display: block;
+         border-bottom: 1px solid hsla(var(--hue), 8%, 40%, 0.2);
+      }
+
+      .ims-screenshot-caption {
+         padding: 1rem;
+         font-size: 0.95rem;
+         color: var(--gray-color);
+         text-align: center;
+         font-weight: var(--font-medium);
+      }
+
+      @media (max-width: 768px) {
+         .ims-gallery { grid-template-columns: 1fr; }
+      }
+
+      /* Image Modal / Lightbox */
+      .zoomable-img {
+         cursor: zoom-in;
+         transition: opacity 0.3s;
+      }
+      .zoomable-img:hover {
+         opacity: 0.85;
+      }
+      .img-modal {
+         display: none; 
+         position: fixed;
+         z-index: 1000;
+         inset: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(11, 15, 25, 0.95);
+         backdrop-filter: blur(5px);
+         padding: 1rem;
+         align-items: center;
+         justify-content: center;
+         opacity: 0;
+         transition: opacity 0.3s ease;
+      }
+      .img-modal.show-modal {
+         opacity: 1;
+      }
+      .img-modal__content {
+         max-width: 95%;
+         max-height: 85vh;
+         border-radius: 0.5rem;
+         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+         background-color: var(--container-color);
+         padding: 0.5rem;
+         object-fit: contain;
+      }
+      .img-modal__close {
+         position: absolute;
+         top: 15px;
+         right: 20px;
+         color: #e6edf3;
+         font-size: 36px;
+         font-weight: bold;
+         cursor: pointer;
+         z-index: 1001;
+      }
+   </style>
+</head>
+
+<body>
+   <!--==================== HEADER ====================-->
+   <header class="header shadow-header" id="header">
+      <nav class="nav container">
+         <a href="index.html" class="nav__logo">KHY</a>
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a href="index.html#home" class="nav__link">Home</a></li>
+               <li><a href="index.html#projects" class="nav__link active-link">Projects</a></li>
+               <li><a href="index.html#resume" class="nav__link">Resume</a></li>
+               <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+               
+               <!-- Responsive Theme Toggle Button -->
+               <li style="display: flex; align-items: center; justify-content: center;">
+                  <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                     <i class="ri-sun-line" id="theme-icon"></i> 
+                  </button>
+               </li>
+            </ul>
+            <div class="nav__close" id="nav-close"><i class="ri-close-large-line"></i></div>
+         </div>
+         <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+      </nav>
+   </header>
+
+   <!--==================== MAIN CONTENT ====================-->
+   <main class="ims-page">
+      <div class="ims-container">
+         
+         <a href="index.html#projects" class="ims-back-btn">
+            <i class="ri-arrow-left-line"></i> Back to Projects
+         </a>
+
+         <!-- 1. BRIEF OVERVIEW & DEMO LINKS -->
+         <section class="ims-hero">
+            <h1 class="ims-title">Inventory Management System</h1>
+            <p class="ims-overview">
+               An automated, role-based enterprise application designed to track retail stock, handle supplier transactions, and generate automated low-stock email alerts.
+            </p>
+            <div class="ims-demo-links">
+               <a href="https://github.com/KhaingHsuYee/InventoryManagementSystem" target="_blank" class="ims-btn ims-btn-secondary">
+                  <i class="ri-github-fill"></i> Github Repo
+               </a>
+               
+            </div>
+         </section>
+
+         <!-- 2. AIM -->
+         <section class="ims-section">
+            <h2 class="ims-section-title"><i class="ri-focus-3-line"></i> The Objective</h2>
+            <div class="ims-aim-card">
+               To replace manual inventory tracking in retail and warehouse environments. The system automates stock recording, significantly reduces manual human errors, and actively monitors stock levels to ensure timely reordering and improve overall operational efficiency.
+            </div>
+         </section>
+
+         <!-- 3. MAIN FEATURES -->
+         <section class="ims-section">
+            <h2 class="ims-section-title"><i class="ri-list-check-2"></i> Key Features</h2>
+            <div class="ims-features">
+               
+               <div class="ims-feature-card">
+                  <div class="ims-feature-icon"><i class="ri-admin-line"></i></div>
+                  <h3 class="ims-feature-title">Role-Based Authority</h3>
+                  <p class="ims-feature-desc">Strict segregation of duties between Admins and Managers. Only Admins can modify core products and suppliers, while both roles can process transactions.</p>
+               </div>
+
+               <div class="ims-feature-card">
+                  <div class="ims-feature-icon"><i class="ri-mail-send-line"></i></div>
+                  <h3 class="ims-feature-title">Automated Reorder Alerts</h3>
+                  <p class="ims-feature-desc">The backend runs daily inventory sweeps and automatically dispatches formatted email alerts to managers if any product drops below its specific reorder point.</p>
+               </div>
+
+               <div class="ims-feature-card">
+                  <div class="ims-feature-icon"><i class="ri-bar-chart-box-line"></i></div>
+                  <h3 class="ims-feature-title">Transaction Analytics</h3>
+                  <p class="ims-feature-desc">A comprehensive visual dashboard generating monthly reports, grouping transaction counts by type (Sales, Purchases, Returns) via interactive charts.</p>
+               </div>
+
+               <div class="ims-feature-card">
+                  <div class="ims-feature-icon"><i class="ri-truck-line"></i></div>
+                  <h3 class="ims-feature-title">End-to-End Tracking</h3>
+                  <p class="ims-feature-desc">Complete lifecycle tracking from logging new supplier purchases to processing end-customer sales and handling inventory returns.</p>
+               </div>
+
+            </div>
+         </section>
+
+         <!-- 4. TECH STACK -->
+         <section class="ims-section">
+            <h2 class="ims-section-title"><i class="ri-stack-line"></i> Tech Stack</h2>
+            <div class="ims-tech-stack">
+               <span class="ims-tech-pill"><i class="ri-angularjs-line"></i> Angular</span>
+               <span class="ims-tech-pill"><i class="ri-java-line"></i> Java Spring Boot</span>
+               <span class="ims-tech-pill"><i class="ri-database-2-line"></i> MySQL</span>
+               
+            </div>
+         </section>
+
+         <!-- 5. SCREENSHOTS -->
+         <section class="ims-section">
+            <h2 class="ims-section-title"><i class="ri-image-line"></i> Application Interface</h2>
+            <div class="ims-gallery">
+               
+               <div class="ims-screenshot">
+                  <!-- Ensure you save your screenshots to the assets/img folder -->
+                  <img src="assets/img/project_4/Transaction_counts_by_type.png" alt="Transaction Reports Dashboard" class="zoomable-img">
+                  <div class="ims-screenshot-caption">Dynamic Dashboard & Transaction Analytics</div>
+               </div>
+
+               <div class="ims-screenshot">
+                  <img src="assets/img/project_4/product_managent.png" alt="Product Management" class="zoomable-img">
+                  <div class="ims-screenshot-caption">Admin Product Catalog & Editing</div>
+               </div>
+
+               <div class="ims-screenshot">
+                  <img src="assets/img/project_4/Transactions.png" alt="Transaction History" class="zoomable-img">
+                  <div class="ims-screenshot-caption">Detailed Transaction Logging</div>
+               </div>
+
+               <div class="ims-screenshot">
+                  <img src="assets/img/project_4/daily_reorder_alert.png" alt="Reorder Email Alert" class="zoomable-img">
+                  <div class="ims-screenshot-caption">Automated Low-Stock Email Alerts</div>
+               </div>
+
+               <div class="ims-screenshot">
+                  <img src="assets/img/project_4/Categories.png" alt="Reorder Email Alert" class="zoomable-img">
+                  <div class="ims-screenshot-caption">Category Page</div>
+               </div>
+
+               <div class="ims-screenshot">
+                  <img src="assets/img/project_4/supplier.png" alt="Reorder Email Alert" class="zoomable-img">
+                  <div class="ims-screenshot-caption">Supplier Page</div>
+               </div>
+
+            </div>
+         </section>
+
+      </div>
+   </main>
+
+   <!--==================== IMAGE MODAL (LIGHTBOX) ====================-->
+   <div id="imageModal" class="img-modal">
+      <span class="img-modal__close">&times;</span>
+      <img class="img-modal__content" id="expandedImg">
+   </div>
+
+   <!--==================== FOOTER ====================-->
+   <footer class="footer">
+      <div class="footer__container container grid">
+         <a href="index.html" class="footer__logo">KHY</a>
+         <div class="footer__links">
+            <a href="index.html#home" class="footer__link">Home</a>
+            <a href="index.html#projects" class="footer__link">Projects</a>
+            <a href="index.html#resume" class="footer__link">Resume</a>
+         </div>
+      </div>
+      <span class="footer__copy">&#169; Khaing Hsu Yee. All rights reserved.</span>
+   </footer>
+
+   <!-- Main JS (Handles Nav Toggle and Global Theme Switcher) -->
+   
+   <script src="assets/js/project-detail.js"></script>
+</body>
+</html>

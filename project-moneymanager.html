@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+
+    <!-- Global styles for Navbar, Footer, and Theme Variables -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Money Manager - Khaing Hsu Yee</title>
+
+    <!-- Layout Styles (Using Global Theme Variables) -->
+    <style>
+      .mm-page {
+        padding-top: calc(var(--header-height) + 2rem);
+        padding-bottom: 5rem;
+      }
+
+      .mm-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .mm-back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--first-color);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 3rem;
+        transition: transform 0.3s ease;
+      }
+
+      .mm-back-btn:hover {
+        transform: translateX(-5px);
+      }
+
+      .mm-hero {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .mm-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        color: var(--white-color);
+        font-weight: 800;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .mm-overview {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+        color: var(--gray-color);
+      }
+
+      .mm-demo-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .mm-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: var(--font-semi-bold);
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .mm-btn-primary {
+        background-color: var(--first-color);
+        color: var(--black-color);
+      }
+
+      .mm-btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+
+      .mm-btn-secondary {
+        background-color: var(--container-color);
+        color: var(--white-color);
+        border: 1px solid hsla(var(--hue), 8%, 40%, 0.4);
+      }
+
+      .mm-btn-secondary:hover {
+        border-color: var(--first-color);
+        color: var(--first-color);
+        transform: translateY(-2px);
+      }
+
+      .mm-section {
+        margin-bottom: 4rem;
+      }
+
+      .mm-section-title {
+        font-size: 1.5rem;
+        color: var(--white-color);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .mm-section-title i {
+        color: var(--first-color);
+      }
+
+      .mm-aim-card {
+        background: var(--container-color);
+        border-radius: 1rem;
+        padding: 2rem;
+        border: 1px solid hsla(var(--hue), 8%, 40%, 0.2);
+        box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--gray-color);
+        border-left: 4px solid var(--first-color);
+      }
+
+      .mm-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .mm-feature-card {
+        background: var(--container-color);
+        border: 1px solid hsla(var(--hue), 8%, 40%, 0.2);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+      }
+
+      .mm-feature-card:hover {
+        border-color: var(--first-color);
+        transform: translateY(-3px);
+      }
+
+      .mm-feature-icon {
+        width: 48px;
+        height: 48px;
+        background: hsla(var(--hue), 79%, 66%, 0.1);
+        color: var(--first-color);
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .mm-feature-title {
+        font-size: 1.1rem;
+        color: var(--white-color);
+        margin-bottom: 0.5rem;
+        font-weight: var(--font-semi-bold);
+      }
+
+      .mm-feature-desc {
+        font-size: 0.95rem;
+        color: var(--gray-color);
+        line-height: 1.6;
+      }
+
+      .mm-tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .mm-tech-pill {
+        background: var(--container-color);
+        border: 1px solid hsla(var(--hue), 8%, 40%, 0.3);
+        padding: 0.5rem 1.25rem;
+        border-radius: 2rem;
+        font-size: 0.9rem;
+        font-weight: var(--font-medium);
+        color: var(--white-color);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .mm-tech-pill i {
+        color: var(--first-color);
+        font-size: 1.1rem;
+      }
+
+      .mm-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+      }
+
+      .mm-screenshot {
+        background: var(--container-color);
+        border: 1px solid hsla(var(--hue), 8%, 40%, 0.2);
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 16px hsla(0, 0%, 0%, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .mm-screenshot:hover {
+        border-color: var(--first-color);
+      }
+
+      .mm-screenshot img {
+         width: 100%;
+         aspect-ratio: 16 / 9; 
+         object-fit: cover; 
+         object-position: top center; 
+         display: block;
+         border-bottom: 1px solid hsla(var(--hue), 8%, 40%, 0.2);
+      }
+
+      .mm-screenshot-caption {
+        padding: 1rem;
+        font-size: 0.95rem;
+        color: var(--gray-color);
+        text-align: center;
+        font-weight: var(--font-medium);
+      }
+
+      @media (max-width: 768px) {
+        .mm-gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* =============== IMAGE MODAL (LIGHTBOX) =============== */
+      .zoomable-img {
+         cursor: zoom-in;
+         transition: opacity 0.3s;
+      }
+      .zoomable-img:hover {
+         opacity: 0.85;
+      }
+      .img-modal {
+         display: none; 
+         position: fixed;
+         z-index: 1000;
+         inset: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(11, 15, 25, 0.95);
+         backdrop-filter: blur(5px);
+         padding: 1rem;
+         align-items: center;
+         justify-content: center;
+         opacity: 0;
+         transition: opacity 0.3s ease;
+      }
+      .img-modal.show-modal {
+         opacity: 1;
+      }
+      .img-modal__content {
+         max-width: 95%;
+         max-height: 85vh;
+         border-radius: 0.5rem;
+         box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+         background-color: var(--container-color);
+         padding: 0.5rem;
+         object-fit: contain;
+      }
+      .img-modal__close {
+         position: absolute;
+         top: 15px;
+         right: 20px;
+         color: #e6edf3;
+         font-size: 36px;
+         font-weight: bold;
+         cursor: pointer;
+         z-index: 1001;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--==================== HEADER ====================-->
+    <header class="header shadow-header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo">KHY</a>
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="index.html#home" class="nav__link">Home</a></li>
+            <li>
+              <a href="index.html#projects" class="nav__link active-link"
+                >Projects</a
+              >
+            </li>
+            <li><a href="index.html#resume" class="nav__link">Resume</a></li>
+            <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+
+            <!-- Responsive Theme Toggle Button -->
+            <li
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <button
+                class="theme-btn"
+                id="theme-toggle"
+                aria-label="Toggle Dark/Light Mode"
+              >
+                <i class="ri-sun-line" id="theme-icon"></i>
+              </button>
+            </li>
+          </ul>
+          <div class="nav__close" id="nav-close">
+            <i class="ri-close-large-line"></i>
+          </div>
+        </div>
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line"></i>
+        </div>
+      </nav>
+    </header>
+
+    <!--==================== MAIN CONTENT ====================-->
+    <main class="mm-page">
+      <div class="mm-container">
+        <a href="index.html#projects" class="mm-back-btn">
+          <i class="ri-arrow-left-line"></i> Back to Projects
+        </a>
+
+        <!-- 1. BRIEF OVERVIEW & DEMO LINKS -->
+        <section class="mm-hero">
+          <h1 class="mm-title">Money Manager</h1>
+          <p class="mm-overview">
+            A full-stack financial dashboard that replaces messy spreadsheets.
+            Easily track daily cash flow, analyze spending habits, and export
+            data using an intuitive, cloud-based platform.
+          </p>
+          <div class="mm-demo-links">
+            <a
+              href="https://mydailymoneymanager.netlify.app"
+              target="_blank"
+              class="mm-btn mm-btn-primary"
+            >
+              <i class="ri-external-link-line"></i> Live Demo
+            </a>
+            <a
+              href="https://github.com/KhaingHsuYee/money-tracker-ui"
+              target="_blank"
+              class="mm-btn mm-btn-secondary"
+            >
+              <i class="ri-github-fill"></i> Frontend Repo
+            </a>
+            <a
+              href="https://github.com/KhaingHsuYee/money-tracker-api"
+              target="_blank"
+              class="mm-btn mm-btn-secondary"
+            >
+              <i class="ri-github-fill"></i> Backend Repo
+            </a>
+          </div>
+          <p
+            style="
+              margin-top: 1.5rem;
+              font-size: 0.85rem;
+              color: var(--gray-color);
+            "
+          >
+            Use <strong>kayyoon1486@gmail.com</strong> /
+            <strong>12345</strong> to test the live application instantly or register a new account for full functionality.
+            
+          </p>
+          <p style="
+              
+              font-size: 0.85rem;
+              color: var(--gray-color);
+            ">Caution: Log in can take a few second because of the deployment using free tier at Render</p>
+        </section>
+
+        <!-- 2. AIM -->
+        <section class="mm-section">
+          <h2 class="mm-section-title">
+            <i class="ri-focus-3-line"></i> The Aim
+          </h2>
+          <div class="mm-aim-card">
+            To provide individuals with a frictionless, visually engaging tool
+            to take control of their personal finances. By automating data
+            visualization and simplifying transaction entry, the platform aims
+            to make budget auditing an effortless daily habit rather than a
+            tedious monthly chore.
+          </div>
+        </section>
+
+        <!-- 3. MAIN FEATURES -->
+        <section class="mm-section">
+          <h2 class="mm-section-title">
+            <i class="ri-list-check-2"></i> Main Features
+          </h2>
+          <div class="mm-features">
+            <div class="mm-feature-card">
+              <div class="mm-feature-icon">
+                <i class="ri-pie-chart-2-line"></i>
+              </div>
+              <h3 class="mm-feature-title">Interactive Dashboard</h3>
+              <p class="mm-feature-desc">
+                Visualizes income and expenses in real-time using dynamic pie
+                charts and trend lines to give an immediate overview of
+                financial health.
+              </p>
+            </div>
+
+            <div class="mm-feature-card">
+              <div class="mm-feature-icon">
+                <i class="ri-filter-3-line"></i>
+              </div>
+              <h3 class="mm-feature-title">Advanced Data Filtering</h3>
+              <p class="mm-feature-desc">
+                A robust search engine allowing users to quickly audit their
+                transaction history by specifying date ranges, categories, or
+                exact keywords.
+              </p>
+            </div>
+
+            <div class="mm-feature-card">
+              <div class="mm-feature-icon">
+                <i class="ri-file-excel-2-line"></i>
+              </div>
+              <h3 class="mm-feature-title">One-Click Reporting</h3>
+              <p class="mm-feature-desc">
+                Instantly export transaction records into formatted Excel
+                (.xlsx) files for local backup, or have the system email the
+                report directly to your inbox.
+              </p>
+            </div>
+
+            <div class="mm-feature-card">
+              <div class="mm-feature-icon">
+                <i class="ri-mail-check-line"></i>
+              </div>
+              <h3 class="mm-feature-title">Secure Authentication</h3>
+              <p class="mm-feature-desc">
+                Protects user data with JWT stateless sessions and professional
+                HTML email verification links for seamless account onboarding.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. TECH STACK -->
+        <section class="mm-section">
+          <h2 class="mm-section-title">
+            <i class="ri-stack-line"></i> Tech Stack
+          </h2>
+          <div class="mm-tech-stack">
+            <span class="mm-tech-pill"
+              ><i class="ri-reactjs-line"></i> React (Vite) & Tailwind</span
+            >
+            <span class="mm-tech-pill"
+              ><i class="ri-bar-chart-grouped-line"></i> Recharts</span
+            >
+            <span class="mm-tech-pill"
+              ><i class="ri-java-line"></i> Java Spring Boot & Security</span
+            >
+            <span class="mm-tech-pill"
+              ><i class="ri-database-2-line"></i> MySQL (Local) / PostgreSQL
+              (Prod)</span
+            >
+            <span class="mm-tech-pill"
+              ><i class="ri-image-line"></i> Cloudinary (Profile Image
+              Storage)</span
+            >
+            <span class="mm-tech-pill"
+              ><i class="ri-cloud-line"></i> Netlify (UI) & Render (API)</span
+            >
+            <span class="mm-tech-pill"
+              ><i class="ri-mail-send-line"></i> Brevo API (Emails)</span
+            >
+          </div>
+        </section>
+
+        <!-- 5. SCREENSHOTS -->
+        <section class="mm-section">
+          <h2 class="mm-section-title">
+            <i class="ri-image-line"></i> Application Interface
+          </h2>
+          <div class="mm-gallery">
+            <div class="mm-screenshot">
+              <img
+                src="assets/img/project_3/money_login.png"
+                alt="Login Interface" class="zoomable-img"
+              />
+              <div class="mm-screenshot-caption">
+                Secure Registration and Login Portal
+              </div>
+            </div>
+
+            <div class="mm-screenshot">
+              <img
+                src="assets/img/project_3/email_verification.png"
+                alt="Email Verification" class="zoomable-img"
+              />
+              <div class="mm-screenshot-caption">
+                Automated HTML Email Verification
+              </div>
+            </div>
+            <div class="mm-screenshot">
+              <!-- Replace with actual screenshots in your assets/img folder -->
+              <img src="assets/img/project_3/dashboard.png" alt="Dashboard View" class="zoomable-img" />
+              <div class="mm-screenshot-caption">
+                Main Dashboard and Data Visualization
+              </div>
+            </div>
+
+            <div class="mm-screenshot">
+              <img
+                src="assets/img/project_3/filter.png"
+                alt="Search and Filter" class="zoomable-img"
+              />
+              <div class="mm-screenshot-caption">
+                Transaction History & Keyword Filtering
+              </div>
+            </div>
+
+            <div class="mm-screenshot">
+              
+              <img src="assets/img/project_3/income1.png" alt="Dashboard View" class="zoomable-img"/>
+              <div class="mm-screenshot-caption">
+                Income Tracking and Downloadable Excel Reports
+              </div>
+            </div>
+
+            <div class="mm-screenshot">
+              <img
+                src="assets/img/project_3/expense.png"
+                alt="Search and Filter" class="zoomable-img"
+              />
+              <div class="mm-screenshot-caption">
+                Expense Tracking and Analytics with Interactive Chart
+              </div>
+            </div>
+
+            
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!--==================== IMAGE MODAL (LIGHTBOX) ====================-->
+   <div id="imageModal" class="img-modal">
+      <span class="img-modal__close">&times;</span>
+      <img class="img-modal__content" id="expandedImg">
+   </div>
+
+   <!--==================== SCROLL UP ====================-->
+   <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line"></i>
+   </a>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+      <div class="footer__container container grid">
+        <a href="index.html" class="footer__logo">KHY</a>
+        <div class="footer__links">
+          <a href="index.html#home" class="footer__link">Home</a>
+          <a href="index.html#projects" class="footer__link">Projects</a>
+          <a href="index.html#resume" class="footer__link">Resume</a>
+        </div>
+      </div>
+      <span class="footer__copy"
+        >&#169; Khaing Hsu Yee. All rights reserved.</span
+      >
+    </footer>
+
+    <!-- Main JS (Handles Nav Toggle and Global Theme Switcher) -->
+    
+    <script src="assets/js/project-detail.js"></script>
+    <script>
+      /*=============== IMAGE LIGHTBOX LOGIC ===============*/
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("expandedImg");
+      const closeBtn = document.querySelector(".img-modal__close");
+      const zoomableImages = document.querySelectorAll(".zoomable-img");
+
+      if (modal && modalImg) {
+         zoomableImages.forEach(img => {
+            img.addEventListener('click', function() {
+               modal.style.display = "flex";
+               // Tiny delay ensures the display:flex applies before fading in
+               setTimeout(() => modal.classList.add('show-modal'), 10);
+               modalImg.src = this.src;
+            });
+         });
+
+         const closeModal = () => {
+            modal.classList.remove('show-modal');
+            setTimeout(() => modal.style.display = "none", 300);
+         };
+
+         if (closeBtn) closeBtn.addEventListener('click', closeModal);
+         
+         // Close if clicking the dark background outside the image
+         modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
+         });
+      }
+    </script>
+  </body>
+</html>
